@@ -51,4 +51,14 @@ public class Manager {
         }
     }
     
+    public void showAllProducts() {
+        for (int i = 0; i < count; i++) {
+            System.out.println("ID: " + produk[i].getId());
+            System.out.println("Nama: " + produk[i].getName());
+            System.out.println("Stock: " + produk[i].getStock());
+            System.out.println("Harga: " + produk[i].getPrice());
+            System.out.println("Kategori: " + produk[i].getCategory());
+            System.out.println("----------------------");
+        }
+    }
 }
