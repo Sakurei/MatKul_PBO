@@ -37,7 +37,11 @@ public class Produk {
     }
 
     public void setStock(int stock) {
-        this.stock = stock;
+        if (stock >= 0) {
+            this.stock = stock;
+        } else {
+            System.out.println("Stock ga boleh negatif!");
+        }
     }
 
     public double getPrice() {
@@ -45,7 +49,11 @@ public class Produk {
     }
 
     public void setPrice(double price) {
-        this.price = price;
+        if (price > 0) {
+            this.price = price;
+        } else {
+            System.out.println("Harga tidak valid!");
+        }
     }
 
     public String getCategory() {
@@ -56,4 +64,17 @@ public class Produk {
         this.category = category;
     }
     
+    public Produk(int id, String name) {
+        this.id = id;
+        this.name = name;
+        this.stock = 0;
+    }
+    
+    public Produk(int id, String name, int stock, double price, String category) {
+        this.id = id;
+        this.name = name;
+        setStock(stock);
+        setPrice(price);
+        this.category = category;
+    }
 }
