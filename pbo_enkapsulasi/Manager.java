@@ -9,6 +9,7 @@ package com.mycompany.pbo_enkapsulasi;
  * @author User
  */
 public class Manager {
+    
     private Produk[] produk = new Produk[50];
     private int count;
     
@@ -26,5 +27,28 @@ public class Manager {
         return null;
     }
     
+    public void addStock(int id, int jumlah) {
+        Produk p = findProduct(id);
+        if (p != null && jumlah > 0) {
+            p.setStock(p.getStock() + jumlah);
+        }
+    }
+    
+    public void reduceStock(int id, int jumlah) {
+        Produk p = findProduct(id);
+        if (p != null && jumlah <= p.getStock()) {
+            p.setStock(p.getStock() - jumlah);
+        }
+    }
+    
+    public void checkStock(int id) {
+        Produk p = findProduct(id);
+        if (p != null) {
+            System.out.println("Produk: " + p.getName());
+            System.out.println("Stock: " + p.getStock());
+        } else {
+            System.out.println("Produk tidak ditemukan");
+        }
+    }
     
 }
